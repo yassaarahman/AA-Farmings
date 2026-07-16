@@ -1,4 +1,5 @@
 <img width="1907" height="945" alt="image" src="https://github.com/user-attachments/assets/43ad2952-83f8-4532-a7ae-2d7f54caa313" />
+
 # 🥛 Dairy E-Commerce Website
 
 A modern **full-stack Dairy E-Commerce Web Application** built with **Node.js**, **Express.js**, **EJS**, and **MySQL**. The platform allows customers to browse and purchase fresh dairy products online while providing administrators with a powerful dashboard to manage products, categories, inventory, users, and orders.
