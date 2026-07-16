@@ -1,0 +1,24 @@
+<%- include('../partials/head') %>
+  <body class="bg-gray-50">
+    <header>
+      <%- include('../partials/adminNav') %>
+    </header>
+    <main>
+      <h1 class="p-4 text-3xl text-center bg-gray-50">Products</h1>
+      <div class="flex flex-wrap justify-evenly">
+        <% products.forEach(product => { %>
+          <div class="m-2 p-4 min-w-64 flex flex-col justify-center items-center gap-2 bg-gray-200 text-center rounded-xl">
+            <img class="self-center rounded-2xl" src="<%= product.imageUrl %>" alt="">
+            <h2 class="text-2xl"><%= product.Name %> </h2>
+            <p class=""> <%= product.Price %> </p>
+            <p> <%= product.Rating %> </p>
+            <span>
+              <button class="mr-4 px-4 py-1.5 bg-blue-400 cursor-pointer rounded-lg">Edit</button>
+              <button class="p-1.5 bg-red-400 cursor-pointer rounded-lg">Delete</button>
+            </span>
+          </div>
+        <% }) %>
+      </div>
+    </main>
+  </body>
+</html>

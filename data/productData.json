@@ -1,0 +1,46 @@
+[
+  {
+    "productID": "1",
+    "Name": "Milk",
+    "Price": "240",
+    "Rating": "5",
+    "imageUrl": "/images/milk.png"
+  },
+  {
+    "productID": "2",
+    "Name": "Desi Ghee",
+    "Price": "3000",
+    "Rating": "4.5",
+    "imageUrl": "/images/desi-ghee.png"
+  },
+  {
+    "productID": "4",
+    "Name": "Yogurt",
+    "Price": "200",
+    "Rating": "3",
+    "imageUrl": "/images/yougurt.png"
+  },
+  {
+    "productID": "5",
+    "Name": "Cheese",
+    "Price": "480",
+    "Rating": "4",
+    "imageUrl": "/images/cheese.png",
+    "productId": "2"
+  },
+  {
+    "productID": "3",
+    "Name": "Cream",
+    "Price": "1500",
+    "Rating": "3",
+    "imageUrl": "/images/cream.png"
+  },
+  {
+    "Name": "Butter Milk",
+    "Price": "5600",
+    "Rating": "5",
+    "imageUrl": "/images/butter-milk.png",
+    "description": "Enjoy the refreshing taste of our fresh buttermilk, made from high-quality yogurt using traditional methods. Naturally cooling, light, and rich in probiotics, it's the perfect drink to complement your meals or keep you refreshed on a hot day. Served fresh with a smooth, delicious taste.",
+    "productID": "12"
+  }
+]
