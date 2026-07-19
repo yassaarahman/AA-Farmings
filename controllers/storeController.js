@@ -1,4 +1,5 @@
 const Product = require("../models/products");
+const Cart = require("../models/cart");
 
 exports.getHome = (req, res, next) => {
   const products = Product.fetchAll((products) => {
@@ -32,13 +33,39 @@ exports.getProductDetailsByID = (req, res) => {
   });
 };
 
+// Method 01:
+/* exports.getCart = (req, res) => {
+   Cart.getCart((cartProducts) => {
+     Product.fetchAll((products) => {
+       cartProductsWithDetails = cartProducts.map((productID) =>
+         products.find((product) => product.productID === productID),
+       );
+     });
+   });
+   res.render("store/cart", {
+     cartProducts: cartProductsWithDetails,
+     pageTitle: "Cart",
+   });
+ }; */
 exports.getCart = (req, res) => {
-  res.render("store/cart", {
-    pageTitle: "Cart",
+  Cart.getCart((cartProducts) => {
+    Product.fetchAll((products) => {
+      const cartProductsWithDetails = products.filter((product) =>
+        cartProducts.includes(product.productID),
+      );
+      res.render("store/cart", {
+        cartProductsWithDetails,
+        pageTitle: "Cart",
+      });
+    });
   });
 };
 
 exports.addToCart = (req, res) => {
-  console.log("Product added to Cart", req.body);
-  res.redirect("/cart");
+  Cart.addToCart(req.body.productID, (error) => {
+    if (error) {
+      console.log("Error occured while adding to cart", `"${error}"`);
+    }
+    res.redirect("/cart");
+  });
 };
