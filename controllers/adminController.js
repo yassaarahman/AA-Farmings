@@ -1,8 +1,29 @@
 const Product = require("../models/products");
 
-exports.getAddProduct = (req, res, next) => {
-  console.log(req.url, req.method);
-  res.render("admin/add-product", { pageTitle: "Add Product | AA Farmings" });
+exports.getAddProduct = (req, res) => {
+  res.render("admin/add-product", {
+    pageTitle: "Add Product | AA-Farmings",
+    editing: false,
+  });
+};
+
+exports.getEditProduct = (req, res, next) => {
+  const productID = req.params.productID;
+  const editing = req.query.editing === "true";
+
+  Product.fetchProductByID(productID, (product) => {
+    if (!product) {
+      console.log("Product not found for editing!");
+      return res.redirect("/admin-product-list");
+    }
+
+    console.log(productID, editing, product);
+    res.render("admin/edit-product", {
+      product,
+      editing,
+      pageTitle: "Edit Product | AA Farmings",
+    });
+  });
 };
 
 exports.postAddProduct = (req, res, next) => {
