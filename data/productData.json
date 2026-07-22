@@ -14,19 +14,20 @@
     "imageUrl": "/images/desi-ghee.png"
   },
   {
-    "productID": "4",
     "Name": "Yogurt",
     "Price": "200",
     "Rating": "3",
-    "imageUrl": "/images/yougurt.png"
+    "imageUrl": "/images/yougurt.png",
+    "description": "Fresh, creamy yogurt made from premium-quality milk. Rich in protein and calcium, it's perfect for a healthy breakfast, snacks, smoothies, or everyday meals.",
+    "productID": "4"
   },
   {
-    "productID": "5",
     "Name": "Cheese",
     "Price": "480",
     "Rating": "4",
     "imageUrl": "/images/cheese.png",
-    "productId": "2"
+    "description": "Fresh, rich, and naturally flavorful cheese made from premium-quality milk. Perfect for sandwiches, pizzas, burgers, pasta, salads, or enjoying on its own. A delicious source of calcium and protein for every meal.",
+    "productID": "5"
   },
   {
     "productID": "3",
