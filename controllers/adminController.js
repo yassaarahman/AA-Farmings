@@ -7,6 +7,16 @@ exports.getAddProduct = (req, res) => {
   });
 };
 
+exports.postAddProduct = (req, res, next) => {
+  console.log(req.body);
+
+  const { Name, Price, Rating, imageUrl, description } = req.body;
+  const product = new Product(Name, Price, Rating, imageUrl, description);
+  product.save();
+
+  res.redirect("/admin-product-list");
+};
+
 exports.getEditProduct = (req, res, next) => {
   const productID = req.params.productID;
   const editing = req.query.editing === "true";
@@ -26,15 +36,13 @@ exports.getEditProduct = (req, res, next) => {
   });
 };
 
-exports.postAddProduct = (req, res, next) => {
-  console.log(req.body);
-
-  const { Name, Price, Rating, imageUrl, description } = req.body;
+exports.postEditProduct = (req, res) => {
+  const { productID, Name, Price, Rating, imageUrl, description } = req.body;
   const product = new Product(Name, Price, Rating, imageUrl, description);
+  product.productID = productID;
   product.save();
-  res.render("admin/product-added", {
-    pageTitle: "Product Added | AA Farmings",
-  });
+
+  res.redirect("/admin-product-list");
 };
 
 exports.getAdminProductList = (req, res) => {
