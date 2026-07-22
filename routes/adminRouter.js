@@ -5,6 +5,7 @@ const {
   postAddProduct,
   getAdminProductList,
   getEditProduct,
+  postEditProduct,
 } = require("../controllers/adminController");
 
 adminRouter.get("/admin-home", (req, res, next) => {
@@ -14,6 +15,7 @@ adminRouter.get("/admin-home", (req, res, next) => {
 adminRouter.get("/edit-Product", getAddProduct);
 
 adminRouter.get("/edit-Product/:productID", getEditProduct);
+adminRouter.post("/edit-Product/:productID", postEditProduct);
 
 adminRouter.get("/add-Product", getAddProduct);
 adminRouter.post("/add-Product", postAddProduct);
