@@ -5,7 +5,7 @@ const { error } = require("console");
 const { data } = require("autoprefixer");
 const { json } = require("body-parser");
 
-const homeDataPath = path.join(rootDir, "data", "productData.json");
+const productDataPath = path.join(rootDir, "data", "productData.json");
 
 module.exports = class Product {
   constructor(Name, Price, Rating, imageUrl, description) {
@@ -14,20 +14,26 @@ module.exports = class Product {
     this.Rating = Rating;
     this.imageUrl = imageUrl;
     this.description = description;
-    this.productID = Math.floor(Math.random() * 100).toString();
   }
 
   save() {
     Product.fetchAll((products) => {
-      products.push(this);
-      fs.writeFile(homeDataPath, JSON.stringify(products), (error) => {
-        console.log("File Writing done ", error);
+      if (this.productID) {
+        products = products.map((product) =>
+          product.productID === this.productID ? this : product,
+        );
+      } else {
+        this.productID = Math.floor(Math.random() * 100).toString();
+        products.push(this);
+      }
+      fs.writeFile(productDataPath, JSON.stringify(products), (error) => {
+        console.log("Error occured ", error);
       });
     });
   }
 
   static fetchAll(callback) {
-    fs.readFile(homeDataPath, (err, data) => {
+    fs.readFile(productDataPath, (err, data) => {
       callback(!err ? JSON.parse(data) : []);
     });
   }
