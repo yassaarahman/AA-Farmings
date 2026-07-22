@@ -4,17 +4,18 @@
     <main>
       <h1 class="mt-5 text-4xl text-center">Edit the Product</h1>
       <div class="m-4 flex justify-center items-center">
-        <form class="w-1/3 p-6 bg-gray-100 rounded-xl flex flex-col" action="/edit-product" method="POST">
+        <form class="w-1/3 p-6 bg-gray-100 rounded-xl flex flex-col" action="/edit-product/<%= product.productID %>" method="POST">
+          <input class="p-2 m-1 text-2xl border-2 border-gray-300 rounded-lg" name="productID" type="hidden" value="<%= product.productID %>">
           <label class="text-2xl mt-2" for="Name">Name: </label>
-          <input class="p-2 m-1 text-2xl border-2 rounded-lg" type="text" name="Name" placeholder="Product Name" value="<%= product.Name %>" required />
+          <input class="p-2 m-1 text-2xl border-2 border-gray-300 rounded-lg" type="text" name="Name" placeholder="Product Name" value="<%= product.Name %>" required />
           <label class="text-2xl mt-2" for="Price">Price: </label>
-          <input class="p-2 m-1 text-2xl border-2 rounded-lg" type="text" name="Price" id="Price" placeholder="Price" value="<%= product.Price %>" required>
+          <input class="p-2 m-1 text-2xl border-2 border-gray-300 rounded-lg" type="text" name="Price" id="Price" placeholder="Price" value="<%= product.Price %>" required>
           <label class="text-2xl mt-2" for="Rating">Rating: </label>
-          <input class="p-2 m-1 text-2xl border-2 rounded-lg" type="text" name="Rating" id="Rating" placeholder="Enter the Rating" value="<%= product.Rating %>" required>
+          <input class="p-2 m-1 text-2xl border-2 border-gray-300 rounded-lg" type="text" name="Rating" id="Rating" placeholder="Enter the Rating" value="<%= product.Rating %>" required>
           <label class="text-2xl mt-2" for="imageUrl">URL: </label>
-          <input class="p-2 m-1 text-2xl border-2 rounded-lg" type="text" name="imageUrl" id="imageUrl" placeholder="Enter the URL of image" value="<%= product.imageUrl %>" required>
+          <input class="p-2 m-1 text-2xl border-2 border-gray-300 rounded-lg" type="text" name="imageUrl" id="imageUrl" placeholder="Enter the URL of image" value="<%= product.imageUrl %>" required>
           <label class="text-2xl mt-2" for="description">Description: </label>
-          <textarea class="h-40 p-2 m-1 text-2xl border-2 rounded-lg" name="description" id="description" placeholder="Description"><%= product.description %></textarea>
+          <textarea class="h-40 p-2 m-1 text-2xl border-2 border-gray-300 rounded-lg" name="description" id="description" placeholder="Description"><%= product.description %></textarea>
           <div class="flex justify-center">
             <input class="w-1/2 p-3 mt-6 text-2xl bg-black text-white rounded-lg cursor-pointer" type="submit" value="Update"/>
           </div>
